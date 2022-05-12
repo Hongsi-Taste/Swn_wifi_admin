@@ -14,5 +14,11 @@
         android:gravity="center"
         android:text="@string/main_intro"
         android:textSize="40dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Testing"
+        android:textSize="40dp"/>
 
 </LinearLayout>
