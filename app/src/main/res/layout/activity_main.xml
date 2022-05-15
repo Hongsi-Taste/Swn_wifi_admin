@@ -5,6 +5,7 @@
     android:id="@+id/main_page"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -14,11 +15,36 @@
         android:gravity="center"
         android:text="@string/main_intro"
         android:textSize="40dp" />
-    <TextView
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Testing"
-        android:textSize="40dp"/>
+        android:id="@+id/req_wifiinfo"
+        android:text="REQUEST"
+        android:textSize="30dp"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/send"
+        android:text="SEND"
+        android:textSize="30dp"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/result_scroll"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/result_txt_view"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/res_v1"
+                android:text="res1"/>
+        </LinearLayout>
+    </ScrollView>
+
 
 </LinearLayout>
