@@ -4,6 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/kwonw/AndroidStudioProjects/WiFi_Admin/app/src/main/res/layout/activity_main.xml" value="0.23854166666666668" />
+        <entry key="..\:/Users/kwonw/AndroidStudioProjects/WiFi_Admin/app/src/main/res/layout/scan_activity.xml" value="0.365625" />
+        <entry key="..\:/Users/kwonw/AndroidStudioProjects/WiFi_Admin/app/src/main/res/layout/scanner_main.xml" value="0.2734375" />
+        <entry key="..\:/Users/kwonw/AndroidStudioProjects/WiFi_Admin/app/src/main/res/layout/send_activity.xml" value="0.365625" />
+        <entry key="..\:/Users/kwonw/AndroidStudioProjects/WiFi_Admin/app/src/main/res/layout/send_info.xml" value="0.115625" />
       </map>
     </option>
   </component>

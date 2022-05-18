@@ -1,50 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main_page"
+    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center"
-    android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/main_intro"
-        android:textSize="40dp" />
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/req_wifiinfo"
-        android:text="REQUEST"
-        android:textSize="30dp"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/send"
-        android:text="SEND"
-        android:textSize="30dp"/>
-    <ScrollView
+    <fragment
+        android:id="@+id/MainFragment"
+        android:name="com.gachon.wifi_admin.scanActivity"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/result_scroll"
-        >
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/result_txt_view"
-            android:orientation="vertical"
-            >
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/res_v1"
-                android:text="res1"/>
-        </LinearLayout>
-    </ScrollView>
+        android:layout_height="match_parent" />
 
-
-</LinearLayout>
+</FrameLayout>

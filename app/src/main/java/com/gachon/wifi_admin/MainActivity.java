@@ -1,5 +1,9 @@
 package com.gachon.wifi_admin;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.content.BroadcastReceiver;
@@ -11,40 +15,32 @@ import android.net.wifi.ScanResult;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    scanActivity mainFrag;
+    sendActivity sendFrag;
     WifiManager wifiManager;
     TextView test_tv;
-    Button wifi_scan_btn;
-    String sep_str = ", SSID";
 
-    private void scanSuccess() {
+    public void scanSuccess() {
         List<ScanResult> results = wifiManager.getScanResults();
-        Log.e("wifi-info",results.toString());
-        String scan_res = results.toString();
-        String scan_list= "";
-        String[] scan_sep = scan_res.split(sep_str);
-        for(int i=0;i<scan_sep.length;i++){
-            scan_sep[i] += "\n\nSSID: ";
-            scan_list += scan_sep[i];
+        String row_res = results.toString();
+        String[] filter_res = row_res.split("] ");
+        String final_res="";
+        for(int i=0;i<filter_res.length;i++){
+            filter_res[i]+="\n";
+            final_res += filter_res[i];
         }
-        test_tv.setText(scan_list);
-    }
-
-    private void scanFailure() {
-        // handle failure: new scan did NOT succeed
-        // consider using old scan results: these are the OLD results!
+        Log.e("wifi-info",results.toString());
+        test_tv.setText(final_res);
+    };
+    public void scanFailure() {
+        ///handle failure
+        ///consider using old result
         List<ScanResult> results = wifiManager.getScanResults();
     }
 
@@ -54,7 +50,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         test_tv = findViewById(R.id.res_v1);
-        wifi_scan_btn = findViewById(R.id.req_wifiinfo);
+        mainFrag = (scanActivity) getSupportFragmentManager().findFragmentById(R.id.scan_activity);
+        sendFrag = new sendActivity();
 
         if (ContextCompat.checkSelfPermission(MainActivity.this,
                 Manifest.permission.ACCESS_COARSE_LOCATION)
@@ -80,7 +77,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         }
-
         wifiManager = (WifiManager)getApplicationContext().getSystemService(Context.WIFI_SERVICE);
 
         BroadcastReceiver wifiScanReceiver = new BroadcastReceiver() {
@@ -90,11 +86,11 @@ public class MainActivity extends AppCompatActivity {
                         WifiManager.EXTRA_RESULTS_UPDATED, false);
                 if (success) {
                     scanSuccess();
-                    Log.e("wifi","scanSuccess !!!!!!!!!!!!!!!");
+                    Log.e("wifi","scanSucceed");
                 } else {
                     // scan failure handling
                     scanFailure();
-                    Log.e("wifi","scanFailure ..............");
+                    Log.e("wifi","scanFailed");
                 }
             }
         };
@@ -103,23 +99,10 @@ public class MainActivity extends AppCompatActivity {
         intentFilter.addAction(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION);
         registerReceiver(wifiScanReceiver, intentFilter);
 
-
-        wifi_scan_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                boolean success = wifiManager.startScan();
-                if (!success) {
-                    // scan failure handling
-                    scanFailure();
-                    Log.e("wifi","scanFailure ..............");
-                }
-            }
-        });
-
     }
-
     //권한요청을 사용자에게 허락받았는지 못받았는지 결과를 알수 있는 콜백 메서드
     @Override
+
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
@@ -140,6 +123,13 @@ public class MainActivity extends AppCompatActivity {
                 return;
             }
 
+        }
+    }
+    public void onFragmentChanged(int index) {
+        if(index==0){
+            getSupportFragmentManager().beginTransaction().replace(R.id.container,sendFrag).commit();
+        } else if(index==1){
+            getSupportFragmentManager().beginTransaction().replace(R.id.container,mainFrag).commit();
         }
     }
 }
