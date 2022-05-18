@@ -8,6 +8,9 @@
         <entry key="..\:/Users/kwonw/AndroidStudioProjects/WiFi_Admin/app/src/main/res/layout/scanner_main.xml" value="0.2734375" />
         <entry key="..\:/Users/kwonw/AndroidStudioProjects/WiFi_Admin/app/src/main/res/layout/send_activity.xml" value="0.365625" />
         <entry key="..\:/Users/kwonw/AndroidStudioProjects/WiFi_Admin/app/src/main/res/layout/send_info.xml" value="0.115625" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.5289855072463768" />
+        <entry key="app/src/main/res/layout/scan_activity.xml" value="0.4746376811594203" />
+        <entry key="app/src/main/res/layout/send_activity.xml" value="0.4746376811594203" />
       </map>
     </option>
   </component>
