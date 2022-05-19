@@ -58,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
 
         }
         Log.e("wifi-info",print_data);
+
+        test_tv = findViewById(R.id.res_v1);
         test_tv.setText(print_data);
 
         return results;
@@ -122,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
                     for(int i=0;i<arr_size;i++){
                         ScanResult tmp = results.get(i);
 
-                        if(tmp.SSID.compareTo("GC_free_WiFi") != 0){
+                        if(tmp.SSID.compareTo("GC_free_WiFi") == 0){
                             Log.d("TEST","GC_Enable");
 
                             String mac = tmp.BSSID.substring(9);
