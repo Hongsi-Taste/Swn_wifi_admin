@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
     int floor5 = 57;
     int floor4 = 64;
-    int floor2 = -1;
+    int floor2 = 39;
 
     mac_s mac_list = new mac_s();
 
