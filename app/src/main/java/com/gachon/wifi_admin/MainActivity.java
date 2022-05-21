@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
     int floor5 = 57;
     int floor4 = 64;
-    int floor2 = -1;
+    int floor2 = 39;
 
     mac_s mac_list = new mac_s();
 
@@ -222,7 +222,7 @@ public class MainActivity extends AppCompatActivity {
 
             send_rssi_data(room,floor,rssi_arr);
 
-        }/*else if(floor == 2){
+        }else if(floor == 2){
             int[] rssi_arr = new int[floor2];
 
             for(int i=0;i<floor2;i++){
@@ -240,7 +240,7 @@ public class MainActivity extends AppCompatActivity {
 
             send_rssi_data(room,floor,rssi_arr);
 
-        }*/
+        }
 
     }
 
