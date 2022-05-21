@@ -19,14 +19,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/req_wifiinfo"
-        android:text="REQUEST"
+        android:text="Scan WIFI"
+        android:textSize="30dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/fl_info_input"
+        android:text="Floor"
         android:textSize="30dp"/>
 
     <Button
-        android:id="@+id/send"
+        android:id="@+id/where"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SEND"
+        android:text="Where am I"
         android:textSize="30dp" />
 
     <ScrollView
@@ -40,6 +47,12 @@
             android:id="@+id/result_txt_view"
             android:orientation="vertical"
             >
+            <TextView
+                android:id="@+id/result_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Scan_result : "
+                android:textSize="30dp"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

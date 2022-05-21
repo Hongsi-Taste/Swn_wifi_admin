@@ -33,7 +33,6 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     scanActivity mainFrag;
-    sendActivity sendFrag;
     WifiManager wifiManager;
     TextView test_tv;
 
@@ -80,7 +79,6 @@ public class MainActivity extends AppCompatActivity {
 
         test_tv = findViewById(R.id.res_v1);
         mainFrag = (scanActivity) getSupportFragmentManager().findFragmentById(R.id.scan_activity);
-        sendFrag = new sendActivity();
 
 
         if (ContextCompat.checkSelfPermission(MainActivity.this,
@@ -183,7 +181,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void make_rssi_arr(int room, int floor){
+    public void make_rssi_arr(int floor){
 
         if(floor == 5){
 
@@ -202,7 +200,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
 
-            send_rssi_data(room,floor,rssi_arr);
+            send_rssi_data(floor,rssi_arr);
 
         }else if(floor == 4){
             int[] rssi_arr = new int[floor4];
@@ -220,7 +218,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
 
-            send_rssi_data(room,floor,rssi_arr);
+            send_rssi_data(floor,rssi_arr);
 
         }else if(floor == 2){
             int[] rssi_arr = new int[floor2];
@@ -238,19 +236,18 @@ public class MainActivity extends AppCompatActivity {
 
             }
 
-            send_rssi_data(room,floor,rssi_arr);
+            send_rssi_data(floor,rssi_arr);
 
         }
 
     }
 
-    public void send_rssi_data(int room, int floor, int[] arr){
+    public void send_rssi_data(int floor, int[] arr){
 
         String tmp_json = "{\n" +
                 "\n" +
-                "    \"Rom_name\": "+room+",\n" +
                 "    \"Floor\": "+floor+",\n" +
-                "    \"Macs\": "+Arrays.toString(arr)+ "\n" +
+                "    \"macs\": "+Arrays.toString(arr)+ "\n" +
                 "\n" +
                 "}";
 
@@ -263,7 +260,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void onFragmentChanged(int index) {
         if(index==0){
-            getSupportFragmentManager().beginTransaction().replace(R.id.container,sendFrag).commit();
+
         } else if(index==1){
 
             mainFrag = new scanActivity();
@@ -286,21 +283,26 @@ public class MainActivity extends AppCompatActivity {
             MainActivity activity = weakReference.get();
 
             String result;
+            TextView result_text = activity.findViewById(R.id.result_text);
 
-            TextView send_result = activity.findViewById(R.id.send_result);
+            TextView send_result = activity.findViewById(R.id.res_v1);
 
             if (activity != null) {
                 switch (msg.what) {
                     // http 클래스에서 JSON 데이터를 넘겨받은 경우.
                     case 101:
 
+                        result_text.setText("Predict Result : ");
+
                         result = (String) msg.obj;
 
-                        send_result.setText("Result : "+ result);
+                        send_result.setText("your in.... : "+ result);
 
                         break;
                     // http 클래스에서 JSON 데이터를 넘겨받지 못한 경우.
                     case 404:
+
+                        result_text.setText("Predict Result : ");
 
                         result = "Error!";
 

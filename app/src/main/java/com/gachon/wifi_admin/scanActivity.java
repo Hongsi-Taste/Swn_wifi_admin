@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -24,14 +25,16 @@ public class scanActivity extends Fragment {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.scan_activity,container,false);
 
         Button req_btn = rootView.findViewById(R.id.req_wifiinfo);
-        Button send_btn = rootView.findViewById(R.id.send);
+        Button send_btn = rootView.findViewById(R.id.where);
+
+        EditText floor = rootView.findViewById(R.id.fl_info_input);
 
 
         send_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 MainActivity activity = (MainActivity) getActivity();
-                activity.onFragmentChanged(0);
+                activity.make_rssi_arr(Integer.parseInt(floor.getText().toString()));
             }
         });
         req_btn.setOnClickListener(new View.OnClickListener() {

@@ -22,7 +22,7 @@ public class Http extends Thread{
 
         body = input;
 
-        mURL = "http://ec2-3-142-225-181.us-east-2.compute.amazonaws.com:8088/Add/1";
+        mURL = "http://ec2-3-142-225-181.us-east-2.compute.amazonaws.com:8080/quest";
 
         mhandler = handler;
     }
