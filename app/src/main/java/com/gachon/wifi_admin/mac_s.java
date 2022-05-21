@@ -64,6 +64,13 @@ public class mac_s {
 
     public void mac_add2(){
         mac_2 = new ArrayList<String>();
+
+        mac_2.add("9d:fa:00");	mac_2.add("9d:f9:e0");	mac_2.add("9d:d9:60");	mac_2.add("a0:cf:70");	mac_2.add("9d:d9:40");	mac_2.add("9f:a8:b0");	mac_2.add("9f:a8:90");
+        mac_2.add("a1:89:70");	mac_2.add("a1:89:50");	mac_2.add("9e:4d:b0");	mac_2.add("9e:4d:d0");	mac_2.add("9e:37:50");	mac_2.add("9e:37:30");	mac_2.add("a0:8f:b0");
+        mac_2.add("a0:8f:90");	mac_2.add("a0:e7:a0");	mac_2.add("a0:68:b0");	mac_2.add("a0:e7:80");	mac_2.add("9e:8a:f2");	mac_2.add("9e:8a:d2");	mac_2.add("9e:61:50");
+        mac_2.add("a0:68:90");	mac_2.add("9e:61:30");	mac_2.add("a1:99:d2");	mac_2.add("a1:99:f2");	mac_2.add("9e:2a:f2");	mac_2.add("9e:2a:d2");	mac_2.add("9d:df:62");
+        mac_2.add("9d:df:42");	mac_2.add("9e:7c:f0");	mac_2.add("9e:7d:10");	mac_2.add("a0:d3:90");	mac_2.add("a0:d3:70");	mac_2.add("a1:7c:20");	mac_2.add("a0:48:40");
+        mac_2.add("a1:7c:00");	mac_2.add("a0:48:20");	mac_2.add("9d:f9:40");	mac_2.add("9f:9f:80");
     }
 
     public int find5Mac(String mac){
