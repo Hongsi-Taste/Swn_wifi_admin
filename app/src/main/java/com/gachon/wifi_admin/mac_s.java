@@ -14,6 +14,7 @@ public class mac_s {
     public mac_s(){
         mac_add5();
         mac_add4();
+        mac_add2();
     }
 
     public void mac_add5(){
