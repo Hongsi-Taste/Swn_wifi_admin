@@ -141,7 +141,8 @@ public class MainActivity extends AppCompatActivity {
 
                         }
                     }
-
+                    
+                    results.clear();
 
                     Log.e("wifi","scanSucceed");
                 } else {
